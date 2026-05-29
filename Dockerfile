@@ -1,4 +1,5 @@
-FROM alpine:latest
-LABEL Name=image Version=0.0.1
-RUN apk add --no-cache fortune
-ENTRYPOINT ["sh", "-c", "fortune -a | cat"]
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+RUN npm install
+CMD ["npm","run","dev"]

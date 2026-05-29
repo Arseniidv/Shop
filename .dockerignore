@@ -1,25 +1,43 @@
-**/.classpath
-**/.dockerignore
-**/.env
-**/.git
-**/.gitignore
-**/.project
-**/.settings
-**/.toolstarget
-**/.vs
-**/.vscode
-**/*.*proj.user
-**/*.dbmdl
-**/*.jfm
-**/bin
-**/charts
-**/docker-compose*
-**/compose*
-**/Dockerfile*
+# Version control and local meta (not needed in image)
+.git
+.gitignore
+.dockerignore
+
+# Dependencies - install inside the image
 **/node_modules
-**/npm-debug.log
-**/obj
-**/secrets.dev.yaml
-**/values.dev.yaml
-LICENSE
-README.md
+
+# Environment and secrets (broad match; no negation for older Docker clients)
+**/.env
+**/.env.*
+
+# Logs
+**/logs
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS noise
+**/.DS_Store
+**/Thumbs.db
+
+# Editors / IDE
+**/.idea
+**/.vscode
+**/*.swp
+**/*.swo
+
+# Local build and test artifacts
+**/dist
+**/build
+**/coverage
+**/.nyc_output
+
+# Compose / orchestration - not copied into app layer
+**/docker-compose*.yml
+**/docker-compose*.yaml
+**/compose*.yaml
+**/compose*.yml
+
+# Docker definitions - not needed inside COPY layers
+**/Dockerfile*

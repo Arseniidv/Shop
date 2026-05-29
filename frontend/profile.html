@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Профиль</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.profile-container{
+max-width:500px;
+margin:60px auto;
+padding:30px;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.tabs{
+display:flex;
+margin-bottom:20px;
+background:#f1f1f1;
+border-radius:8px;
+overflow:hidden;
+}
+
+.tabs button{
+flex:1;
+border:none;
+padding:12px;
+cursor:pointer;
+background:#eee;
+transition:0.3s;
+}
+
+.tabs button.active{
+background:#caa33c;
+color:white;
+}
+
+.form-block{
+display:none;
+animation:fade .3s ease;
+}
+
+.form-block.active{
+display:block;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+button.action{
+width:100%;
+padding:12px;
+background:#caa33c;
+border:none;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+button.action:hover{
+background:#b8922e;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="tabs">
+<button id="loginTab" class="active">Вход</button>
+<button id="registerTab">Регистрация</button>
+</div>
+
+<div id="loginForm" class="form-block active">
+
+<h2>Вход</h2>
+
+<input type="email" placeholder="Email" id="loginEmail">
+<input type="password" placeholder="Пароль" id="loginPassword">
+
+<button class="action" onclick="login()">Вход</button>
+
+</div>
+
+
+<div id="registerForm" class="form-block">
+
+<h2>Регистрация</h2>
+
+<input type="text" placeholder="Имя" id="regName">
+<input type="email" placeholder="Email" id="regEmail">
+<input type="password" placeholder="Пароль" id="regPassword">
+
+<button class="action" onclick="register()">Регистрация</button>
+
+</div>
+
+</div>
+
+<script>
+const API_BASE_URL = "http://localhost:5001";
+
+const loginTab=document.getElementById("loginTab")
+const registerTab=document.getElementById("registerTab")
+
+const loginForm=document.getElementById("loginForm")
+const registerForm=document.getElementById("registerForm")
+
+
+loginTab.onclick=()=>{
+
+loginForm.classList.add("active")
+registerForm.classList.remove("active")
+
+loginTab.classList.add("active")
+registerTab.classList.remove("active")
+
+}
+
+registerTab.onclick=()=>{
+
+loginForm.classList.remove("active")
+registerForm.classList.add("active")
+
+loginTab.classList.remove("active")
+registerTab.classList.add("active")
+
+}
+
+
+async function register(){
+const name=document.getElementById("regName").value.trim()
+const email=document.getElementById("regEmail").value.trim()
+const password=document.getElementById("regPassword").value
+
+if(!name||!email||!password){
+alert("Заполните все поля")
+return
+}
+
+try{
+const response=await fetch(`${API_BASE_URL}/auth/register`,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name,email,password})
+})
+
+const data=await response.json()
+
+if(!response.ok){
+alert(data.message||"Ошибка регистрации")
+return
+}
+
+localStorage.setItem("authToken",data.token)
+localStorage.setItem("currentUser",JSON.stringify(data.user))
+window.location.replace("./index.html")
+}catch(error){
+alert("Сервер недоступен. Проверьте, что backend запущен.")
+}
+}
+
+
+async function login(){
+const email=document.getElementById("loginEmail").value.trim()
+const password=document.getElementById("loginPassword").value
+
+if(!email||!password){
+alert("Введите email и пароль")
+return
+}
+
+try{
+const response=await fetch(`${API_BASE_URL}/auth/login`,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({email,password})
+})
+
+const data=await response.json()
+
+if(!response.ok){
+alert(data.message||"Неверный логин или пароль")
+return
+}
+
+localStorage.setItem("authToken",data.token)
+localStorage.setItem("currentUser",JSON.stringify(data.user))
+window.location.replace("./index.html")
+}catch(error){
+alert("Сервер недоступен. Проверьте, что backend запущен.")
+}
+}
+
+</script>
+
+</body>
+</html>

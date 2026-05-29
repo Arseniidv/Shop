@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De magnifiques diamants</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="logo-icon"><i class="fas fa-gem"></i></span>
+        <span class="logo-text">De magnifiques diamants</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active" data-page="home">Главная</a></li>
+          <li><a href="#about" class="nav-link" data-page="about">О нас</a></li>
+          <li><a href="#collections" class="nav-link" data-page="collections">Коллекции</a></li>
+          <li><a href="#blog" class="nav-link" data-page="blog">Блог</a></li>
+          <li><a href="#contact" class="nav-link" data-page="contact">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header-icon">
+        <span class="icon-bth" id="search-toggle" aria-label="Поиск"><i class="fas fa-search"></i></span>
+        <a href="profile.html" class="icon-bth" id="profile-nav-link" aria-label="Профиль"><i class="fas fa-user"></i></a>
+        <span class="icon-bth" id="cart-nav-link" data-page="cart" aria-label="Корзина">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cart-nav-count">0</span>
+        </span>
+      </div>
+    </header>
+
+    <div class="search-container" id="header-search-container">
+      <input type="text" id="header-search-input" placeholder="Поиск украшений..." aria-label="Поиск украшений">
+    </div>
+
+    <main>
+      <div id="home" class="page active">
+        <section class="hero">
+          <h1>De magnifiques diamants</h1>
+          <p>Откройте для себя мир роскошных украшений ручной работы. Бриллианты, сапфиры, изумруды — совершенство в каждой детали.</p>
+          <a href="#collections" class="cta-button">Смотреть коллекции</a>
+        </section>
+
+        <div class="controls">
+          <div class="filters" id="filter-container">
+            <button class="filter-bth active" data-filter="Все">Все</button>
+            <button class="filter-bth" data-filter="Кольца">Кольца</button>
+            <button class="filter-bth" data-filter="Серьги">Серьги</button>
+            <button class="filter-bth" data-filter="Ожерелья">Ожерелья</button>
+            <button class="filter-bth" data-filter="Браслеты">Браслеты</button>
+            <button class="filter-bth" data-filter="Камни">Камни</button>
+          </div>
+          <div class="sort-container">
+            <label for="sort-select">Сортировать:</label>
+            <select id="sort-select">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Цена: по возрастанию</option>
+              <option value="price-desc">Цена: по убыванию</option>
+              <option value="name-asc">По имени (А-Я)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="products-grid" id="product-container">
+          <div class="no-results">Загрузка товаров...</div>
+        </div>
+      </div>
+
+      <div id="about" class="page">
+        <section class="about-section">
+          <h2>О нас</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>De magnifiques diamants — это мир роскоши и безупречного вкуса. С 2010 года мы создаём украшения, которые подчеркивают индивидуальность и статус своих обладателей.</p>
+              <p>Каждое изделие проходит строгий контроль качества и сертифицируется ведущими геммологическими лабораториями. Мы работаем только с лучшими поставщиками драгоценных камней и металлов.</p>
+              <p>Наша миссия — делать прекрасное доступным, сохраняя при этом высочайшие стандарты качества и сервиса.</p>
+            </div>
+            <div class="about-image"></div>
+          </div>
+          <div class="about-features">
+            <div class="feature">
+              <i class="fas fa-gem"></i>
+              <h3>Высокое качество</h3>
+              <p>Только сертифицированные драгоценные камни высшей пробы</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-hand-sparkles"></i>
+              <h3>Ручная работа</h3>
+              <p>Каждое изделие создаётся мастерами с многолетним опытом</p>
+            </div>
+            <div class="feature">
+              <i class="fas fa-award"></i>
+              <h3>Гарантия</h3>
+              <p>Предоставляем сертификат подлинности и пожизненную гарантию</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="collections" class="page">
+        <section class="collections-section">
+          <h2>Наши коллекции</h2>
+          <p>Каждая коллекция — это уникальная история, воплощённая в драгоценных металлах и камнях. Мы предлагаем широкий выбор украшений на любой вкус.</p>
+          <div class="collections">
+            <div class="collection-card">
+              <div class="collection-image" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
+              <div class="collection-info">
+                <h3>Бриллиантовая коллекция</h3>
+                <p>Украшения с бриллиантами идеальной огранки</p>
+              </div>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"></div>
+              <div class="collection-info">
+                <h3>Цветные камни</h3>
+                <p>Сапфиры, изумруды и рубины в изысканных оправах</p>
+              </div>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"></div>
+              <div class="collection-info">
+                <h3>Свадебная коллекция</h3>
+                <p>Кольца и комплекты для самого важного дня</p>
+              </div>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image" style="background-image: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"></div>
+              <div class="collection-info">
+                <h3>Современная классика</h3>
+                <p>Минималистичные украшения для повседневной элегантности</p>
+              </div>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image" style="background-image: linear-gradient(135deg, #fa709a 0%, #fee140 100%)"></div>
+              <div class="collection-info">
+                <h3>Винтаж</h3>
+                <p>Украшения в стиле ар-деко и ретро</p>
+              </div>
+            </div>
+            <div class="collection-card">
+              <div class="collection-image" style="background-image: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"></div>
+              <div class="collection-info">
+                <h3>Мужская коллекция</h3>
+                <p>Печатки, запонки и браслеты для мужчин</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="blog" class="page">
+        <section class="blog-section">
+          <h2>Блог</h2>
+          <p>Следите за последними новостями мира ювелирного искусства, советами по уходу за украшениями и трендами сезона.</p>
+          <div class="blog-posts">
+            <div class="blog-post">
+              <div class="blog-image" style="background-image: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%)"></div>
+              <div class="blog-content">
+                <div class="post-date">15 марта 2026</div>
+                <h3>Как выбрать идеальное кольцо с бриллиантом</h3>
+                <p>Полное руководство по выбору бриллиантов: 4C, огранка, цвет, чистота и каратность.</p>
+                <a href="#" class="read-more">Читать далее</a>
+              </div>
+            </div>
+            <div class="blog-post">
+              <div class="blog-image" style="background-image: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)"></div>
+              <div class="blog-content">
+                <div class="post-date">1 марта 2026</div>
+                <h3>Тренды ювелирных украшений 2026</h3>
+                <p>Узнайте о главных тенденциях этого года: цветные камни, асимметрия и экологичные материалы.</p>
+                <a href="#" class="read-more">Читать далее</a>
+              </div>
+            </div>
+            <div class="blog-post">
+              <div class="blog-image" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"></div>
+              <div class="blog-content">
+                <div class="post-date">20 февраля 2026</div>
+                <h3>Уход за жемчугом: советы экспертов</h3>
+                <p>Жемчуг требует особого ухода. Рассказываем, как сохранить его красоту на долгие годы.</p>
+                <a href="#" class="read-more">Читать далее</a>
+              </div>
+            </div>
+            <div class="blog-post">
+              <div class="blog-image" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%)"></div>
+              <div class="blog-content">
+                <div class="post-date">5 февраля 2026</div>
+                <h3>Сапфиры: от древности до наших дней</h3>
+                <p>История сапфиров, их символика и значение в культуре разных народов.</p>
+                <a href="#" class="read-more">Читать далее</a>
+              </div>
+            </div>
+            <div class="blog-post">
+              <div class="blog-image" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"></div>
+              <div class="blog-content">
+                <div class="post-date">25 января 2026</div>
+                <h3>Как определить качество золота</h3>
+                <p>Всё о пробах золота: 375, 585, 750 — что означают эти цифры и как выбрать лучшее.</p>
+                <a href="#" class="read-more">Читать далее</a>
+              </div>
+            </div>
+            <div class="blog-post">
+              <div class="blog-image" style="background-image: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"></div>
+              <div class="blog-content">
+                <div class="post-date">10 января 2026</div>
+                <h3>Изумруды: легенды и реальность</h3>
+                <p>Почему изумруды считаются одними из самых ценных драгоценных камней в мире.</p>
+                <a href="#" class="read-more">Читать далее</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="contact" class="page">
+        <section class="contact-section">
+          <h2>Контакты</h2>
+          <p>Свяжитесь с нами любым удобным способом. Мы всегда рады помочь вам с выбором украшений.</p>
+          <div class="contact-container">
+            <div class="contact-info">
+              <h3>Наши контакты</h3>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <strong>Адрес</strong>
+                  <p>г. Москва, ул. Тверская, 25</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <strong>Телефон</strong>
+                  <p>+7 (495) 123-45-67</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <strong>Email</strong>
+                  <p>info@diamants.ru</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <strong>Режим работы</strong>
+                  <p>Пн-Сб: 10:00 - 21:00<br>Вс: 11:00 - 19:00</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-form">
+              <h3>Напишите нам</h3>
+              <form id="contact-form">
+                <div class="form-group">
+                  <label for="contact-name">Ваше имя</label>
+                  <input type="text" id="contact-name" placeholder="Введите ваше имя" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email</label>
+                  <input type="email" id="contact-email" placeholder="Введите ваш email" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-message">Сообщение</label>
+                  <textarea id="contact-message" placeholder="Введите ваше сообщение" required></textarea>
+                </div>
+                <button type="submit" class="cta-button" style="width:100%">Отправить</button>
+              </form>
+              <div id="contact-success" style="display:none; color:green; margin-top:15px; text-align:center;">
+                <i class="fas fa-check-circle"></i> Сообщение отправлено! Мы свяжемся с вами в ближайшее время.
+              </div>
+            </div>
+          </div>
+          <div class="map-container">
+            <h3>Мы на карте</h3>
+            <div class="map" id="map-placeholder">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.373194298926!2d37.6067613159308!3d55.76122098055395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a0bf1db03cf%3A0x7a0e4c5d3e5c3f0!2z0JLRi9C_0YPRgdC60LDRjyDQv9C70L7RidCw0LTRjCwg0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Карта проезда"></iframe>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="cart" class="page">
+        <section class="cart-section">
+          <h2>Корзина</h2>
+          <div id="cart-items"></div>
+          <div id="cart-summary" class="cart-summary" style="display:none;">
+            <div class="cart-total">
+              <span>Итого:</span>
+              <span id="cartTotal">0</span>
+            </div>
+            <button class="checkout-button" id="checkout-button">Оформить заказ</button>
+            <div id="checkout-message" style="display:none; color:green; margin-top:10px; text-align:center;">
+              <i class="fas fa-check-circle"></i> Спасибо! Ваш заказ принят.
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#home">Главная</a>
+        <a href="#about">О нас</a>
+        <a href="#collections">Коллекции</a>
+        <a href="#blog">Блог</a>
+        <a href="#contact">Контакты</a>
+        <a href="profile.html">Профиль</a>
+      </div>
+      <div class="copyright">
+        &copy; 2026 De magnifiques diamants. Все права защищены.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
